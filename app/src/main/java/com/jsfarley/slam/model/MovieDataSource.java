@@ -20,19 +20,19 @@ public class MovieDataSource extends PageKeyedDataSource<Long, Movie> {
 	private Application mApplication;
 
 	public MovieDataSource(MovieDataService movieDataService, Application application) {
-		mMovieDataService = movieDataService;
-		mApplication = application;
+		this.mMovieDataService = movieDataService;
+		this.mApplication = application;
 	}
 
 	@Override
-	public void loadInitial(@NonNull LoadInitialParams<Long> params, @NonNull LoadInitialCallback<Long, Movie> callback) {
+	public void loadInitial(@NonNull final LoadInitialParams<Long> params, @NonNull LoadInitialCallback<Long, Movie> callback) {
 		mMovieDataService = RetrofitInstance.getService();
 		Call<MovieDBResponse> call = mMovieDataService.getPopularMoviesPaging(mApplication.getApplicationContext().getString(R.string.api_key), 1);
 		call.enqueue(new Callback<MovieDBResponse>() {
 			@Override
 			public void onResponse(Call<MovieDBResponse> call, Response<MovieDBResponse> response) {
 				MovieDBResponse movieDBResponse = response.body();
-				ArrayList<Movie> movies;
+				ArrayList<Movie> movies = new ArrayList<>();
 				if(movieDBResponse != null && movieDBResponse.getResults() != null){
 					movies = (ArrayList<Movie>) movieDBResponse.getResults();
 					callback.onResult(movies, null, (long)2);

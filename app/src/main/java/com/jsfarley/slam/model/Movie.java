@@ -8,14 +8,15 @@ import androidx.annotation.NonNull;
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
 import androidx.databinding.BindingAdapter;
-import androidx.databinding.library.baseAdapters.BR;
 import androidx.recyclerview.widget.DiffUtil;
 
 import com.bumptech.glide.Glide;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.jsfarley.slam.BR;
 import com.jsfarley.slam.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Movie extends BaseObservable implements Parcelable {
@@ -51,6 +52,16 @@ public class Movie extends BaseObservable implements Parcelable {
 	@SerializedName("backdrop_path")
 	@Expose
 	private String backdropPath;
+	//Databinding for backdropPath (similar to posterpath)
+	@BindingAdapter(("backdropPath"))
+	public static void loadBackdrop(ImageView imageView, String imageURL){
+		String imagePath = "https://image.tmdb.org/t/p/original" + imageURL;
+		Glide.with(imageView.getContext())
+				.load(imagePath)
+				.placeholder(R.drawable.ic_movie_placeholder)
+				.into(imageView);
+	}
+
 	@SerializedName("original_language")
 	@Expose
 	private String originalLanguage;
@@ -59,13 +70,13 @@ public class Movie extends BaseObservable implements Parcelable {
 	private String originalTitle;
 	@SerializedName("genre_ids")
 	@Expose
-	private List<Integer> genreIds = null;
+	private List<Integer> genreIds = new ArrayList<>();
 	@SerializedName("title")
 	@Expose
 	private String title;
 	@SerializedName("vote_average")
 	@Expose
-	private Integer voteAverage;
+	private Double voteAverage;
 	@SerializedName("overview")
 	@Expose
 	private String overview;
@@ -100,7 +111,7 @@ public class Movie extends BaseObservable implements Parcelable {
 		this.originalTitle = ((String) in.readValue((String.class.getClassLoader())));
 		in.readList(this.genreIds, (java.lang.Integer.class.getClassLoader()));
 		this.title = ((String) in.readValue((String.class.getClassLoader())));
-		this.voteAverage = ((Integer) in.readValue((Integer.class.getClassLoader())));
+		this.voteAverage = ((Double) in.readValue((Integer.class.getClassLoader())));
 		this.overview = ((String) in.readValue((String.class.getClassLoader())));
 		this.releaseDate = ((String) in.readValue((String.class.getClassLoader())));
 	}
@@ -219,11 +230,11 @@ public class Movie extends BaseObservable implements Parcelable {
 	}
 
 	@Bindable
-	public Integer getVoteAverage() {
+	public Double getVoteAverage() {
 		return voteAverage;
 	}
 
-	public void setVoteAverage(Integer voteAverage) {
+	public void setVoteAverage(Double voteAverage) {
 		this.voteAverage = voteAverage;
 		notifyPropertyChanged(BR.voteAverage);
 	}
