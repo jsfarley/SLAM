@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "196037345541",
+    "firebase_url": "https://slam-889cc.firebaseio.com",
+    "project_id": "slam-889cc",
+    "storage_bucket": "slam-889cc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:196037345541:android:d55e178cfb8e24cafb376c",
+        "android_client_info": {
+          "package_name": "com.jsfarley.slam"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "196037345541-hkfi27a1d1n8u8mqnn5g112bbnk49jgd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDdI6PIDCkl-E6XvmHkEz0tKibqg00aJt8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "196037345541-hkfi27a1d1n8u8mqnn5g112bbnk49jgd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:196037345541:android:bacf32f8e06f5203fb376c",
+        "android_client_info": {
+          "package_name": "com.jsfarley.slamadmin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "196037345541-hkfi27a1d1n8u8mqnn5g112bbnk49jgd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDdI6PIDCkl-E6XvmHkEz0tKibqg00aJt8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "196037345541-hkfi27a1d1n8u8mqnn5g112bbnk49jgd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

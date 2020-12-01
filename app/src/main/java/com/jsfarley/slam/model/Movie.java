@@ -20,6 +20,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Movie extends BaseObservable implements Parcelable {
+	@SerializedName("movie_link")
+	@Expose
+	private String movieLink;
 	@SerializedName("popularity")
 	@Expose
 	private Double popularity;
@@ -118,7 +121,21 @@ public class Movie extends BaseObservable implements Parcelable {
 
 	public Movie() {
 	}
+	public Movie(String title, String overview, String link, String moviePoster){
+		this.title = title;
+		this.overview = overview;
+		this.movieLink = link;
+		this.posterPath = "https://image.tmdb.org/t/p/w500" + moviePoster;
+	}
+	@Bindable
+	public String getMovieLink() {
+		return movieLink;
+	}
 
+	public void setMovieLink(String movieLink) {
+		this.movieLink = movieLink;
+		notifyPropertyChanged(BR.movieLink);
+	}
 	@Bindable
 	public Double getPopularity() {
 		return popularity;

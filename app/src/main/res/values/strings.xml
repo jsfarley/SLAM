@@ -1,4 +1,5 @@
 <resources>
 	<string name="app_name">SLAM</string>
 	<string name="api_key">7a4fb16643a5bcb2470d02482e032730</string>
+	<string name="adds_to_firebase">Adds to firebase</string>
 </resources>
