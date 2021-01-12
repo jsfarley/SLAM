@@ -20,6 +20,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Movie extends BaseObservable implements Parcelable {
+	@SerializedName("search")
+	@Expose
+	private String search;
 	@SerializedName("movie_link")
 	@Expose
 	private String movieLink;
@@ -127,6 +130,17 @@ public class Movie extends BaseObservable implements Parcelable {
 		this.movieLink = link;
 		this.posterPath = "https://image.tmdb.org/t/p/w500" + moviePoster;
 	}
+
+	@Bindable
+	public String getSearch() {
+		return search;
+	}
+
+	public void setSearch(String search) {
+		this.search = search;
+		notifyPropertyChanged(BR.search);
+	}
+
 	@Bindable
 	public String getMovieLink() {
 		return movieLink;
@@ -291,6 +305,7 @@ public class Movie extends BaseObservable implements Parcelable {
 		dest.writeValue(voteAverage);
 		dest.writeValue(overview);
 		dest.writeValue(releaseDate);
+		dest.writeValue(search);
 	}
 
 	public int describeContents() {

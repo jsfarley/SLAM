@@ -99,8 +99,11 @@
 					android:id="@+id/contentMovieLink"
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
-					android:text="@{secondaryMovie.movieLink}"
-					android:hint="Movie URL" />
+					android:text="@{String.valueOf(secondaryMovie.movieLink)}"
+					android:hint="Movie URL"
+					android:maxLines="1"
+					android:inputType="textCapSentences|textAutoCorrect"
+					android:imeOptions="actionNext"/>
 
 			</com.google.android.material.textfield.TextInputLayout>
 

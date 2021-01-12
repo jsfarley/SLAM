@@ -24,7 +24,6 @@ public class MovieActivity extends AppCompatActivity {
 	//Firebase
 	FirebaseDatabase mFirebaseDatabase;
 	DatabaseReference mDatabaseReference;
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -43,6 +42,7 @@ public class MovieActivity extends AppCompatActivity {
 
 	}
 
+
 	//Todo: add content to firebase including the link. create intent to navigate back to search results screen
 	public void addToFirebase(View view){
 		sendToFirebase();
@@ -51,6 +51,7 @@ public class MovieActivity extends AppCompatActivity {
 	}
 
 	public void sendToFirebase(){
+
 		String mTitle = mMovie.getTitle();
 		String mOverView = mMovie.getOverview();
 		String mMovieLink = mMovie.getMovieLink();

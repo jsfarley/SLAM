@@ -13,7 +13,6 @@ public interface MovieDataService {
 	@GET("movie/popular")
 	Call<MovieDBResponse>getPopularMoviesPaging(@Query("api_key") String apiKey, @Query("page") long page);
 
-	//prior to implementing, make sure connecting to tmdb is working with above call response.
 	@GET("search/movie")
 	Call<MovieDBResponse>getSearchesPaging(@Query("api_key") String apiKey, @Query("query") String query,
 	                                       @Query("page") long page);

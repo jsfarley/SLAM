@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
@@ -15,10 +17,13 @@ import com.jsfarley.slam.MovieActivity;
 import com.jsfarley.slam.R;
 import com.jsfarley.slam.databinding.MovieListItemBinding;
 import com.jsfarley.slam.model.Movie;
+import com.jsfarley.slam.model.MovieDBResponse;
+
+import java.util.List;
 
 public class MovieAdapter extends PagedListAdapter<Movie, MovieAdapter.MovieViewHolder> {
 	private Context mContext;
-
+	private MovieDBResponse mMovieDBResponse;
 	public MovieAdapter(Context context){
 		super(Movie.CALLBACK);
 		mContext = context;
@@ -39,6 +44,7 @@ public class MovieAdapter extends PagedListAdapter<Movie, MovieAdapter.MovieView
 		Movie movie = getItem(position);
 		holder.mMovieListItemBinding.setMovie(movie);
 	}
+
 
 
 	public class MovieViewHolder extends RecyclerView.ViewHolder{
